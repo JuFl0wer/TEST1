@@ -1,0 +1,37 @@
+<template>
+  <div class="video-player">
+    <video
+      ref="video"
+      :src="src"
+      :poster="poster"
+      :controls="controls"
+      :autoplay="autoplay"
+      @play="onPlay"
+      @pause="onPause"
+      @ended="onEnded"
+      @timeupdate="onTimeUpdate"
+    >
+      您的浏览器不支持 video 标签。
+    </video>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "VideoPlayer",
+  props: {
+    src: {
+      type: String,
+      required: true,
+    },
+    poster: {
+      type: String,
+      default: "",
+    },
+    controls: {
+      type: Boolean,
+      default: true,
+    },
+    autoplay: {
+      type: Boolean,
+      default: false,
